@@ -4,7 +4,7 @@ program main
     implicit none
     integer, parameter :: n_max = 5
     real(kind=dp), allocatable :: x(:), energy_levels(:), wavefunction(:,:), p(:,:)
-    integer :: i, nx
+    integer :: i, j, nx
     real(kind=dp) :: x1, x2, dx
 
     x1 = 0.0_dp
@@ -24,8 +24,9 @@ program main
 
     open(UNIT=10, FILE='results/raw/probability.txt', STATUS='REPLACE')
     do i = 1, n_max
-        write(10,*) p(i,:)
+            write(10,*) p(i,:)
     end do
+    write(10,*) x(:)
     close(10)
 
 end program main
