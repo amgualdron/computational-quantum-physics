@@ -1,0 +1,10 @@
+__pycache__/
+*.mod
+*.o
+*.exe
+*.x
+results/raw/
+
+venv/
+.vscode/
+
