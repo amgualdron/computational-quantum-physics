@@ -22,8 +22,8 @@ module calculations
     subroutine compute_psi_n(n_final, x, x1,x2, wavefunction)
         implicit none
         integer, intent(in) :: n_final
-        real(kind = dp), intent(in) :: x(:), x1,x2
-        real(kind=dp), intent(out) ::wavefunction(n_final, size(x))
+        real(kind=dp), intent(in) :: x(:), x1,x2
+        real(kind=dp), intent(out) :: wavefunction(:,:)
         integer :: i
 
         do i = 1, n_final
@@ -46,17 +46,13 @@ module calculations
     subroutine compute_energy_levels(n_final, x1,x2,energies)
         implicit none
         integer, intent(in) :: n_final
-        real(kind = dp), intent(in) :: x1,x2
-        real(kind=dp), intent(out) :: energies(n_final)
+        real(kind=dp), intent(in) :: x1,x2
+        real(kind=dp), intent(out) :: energies(:)
         integer :: i
 
         do i = 1, n_final
             energies(i) = energy(x1,x2,i)
         end do
     end subroutine compute_energy_levels
-
-    ! subroutine compute_probability(wavefunction,probability)
-
-    ! end subroutine compute_probability
 
 end module

@@ -14,7 +14,18 @@ program main
 
     x = [(x1 + (i-1)*dx, i = 1, nx)]
 
+    allocate(energy_levels(n_max))
+    allocate(wavefunction(n_max,nx))
+    allocate(p(n_max,nx))
 
+    call compute_energy_levels(n_max,x1,x2,energy_levels)
+    call compute_psi_n(n_max,x,x1,x2,wavefunction)
+    p = abs(wavefunction)**2
 
+    open(UNIT=10, FILE='results/raw/probability.txt', STATUS='REPLACE')
+    do i = 1, n_max
+        write(10,*) p(i,:)
+    end do
+    close(10)
 
 end program main
