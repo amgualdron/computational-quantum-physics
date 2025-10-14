@@ -1,7 +1,7 @@
 module constants
     implicit none
     !set up the working precission
-    integer, parameter :: dp = SELECTED_REAL_KIND(15);
+    integer, parameter :: dp = SELECTED_REAL_KIND(15)
 
     !useful constants
     real(kind = dp), parameter :: pi = acos(-1.0_dp)
