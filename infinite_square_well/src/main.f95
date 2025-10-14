@@ -1,8 +1,9 @@
 program main
     use constants
     use calculations
+
     implicit none
-    integer, parameter :: n_max = 5
+    integer, parameter :: n_max = 6
     real(kind=dp), allocatable :: x(:), energy_levels(:), wavefunction(:,:), p(:,:)
     integer :: i, j, nx
     real(kind=dp) :: x1, x2, dx
