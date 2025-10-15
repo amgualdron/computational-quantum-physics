@@ -10,5 +10,6 @@ module constants
     real(kind = dp), parameter :: hbar = h_planck / (2.0_dp * pi)
     real(kind = dp), parameter :: e_mass = 5.68562966E3_dp ! electron mass eV*s^2 / mm^2
     real(kind = dp), parameter :: e_charge = 1.602176634E-19_dp! electron charge coulombs
+    real(kind = dp), parameter :: hbar2_2m = (hbar**2)/(2.0_dp*e_mass) ! eV/nm^2
     
 end module

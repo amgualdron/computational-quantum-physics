@@ -19,10 +19,11 @@ module solver
         real(kind=dp), intent(in) :: x_min, x_max
 
         interface
-        pure elemental function v(x) result(v_x)
-            real(kind=dp), intent(in) :: x
-            real(kind=dp) :: v_x
-        end function potential
+            pure function v(x) result(v_x)
+                use constants
+                real(kind=dp), intent(in) :: x
+                real(kind=dp) :: v_x
+            end function v
         end interface 
 
         real(kind = dp), intent(out) :: E(N) !return array of N energies (eigenvalues)
