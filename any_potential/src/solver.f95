@@ -16,21 +16,41 @@ module solver
         !*****************************************************************************
 
         integer, intent(in) :: N
-        real(kind=dp), intent(in) :: x_min, x_max
-
+        real(kind = dp), intent(in) :: x_min, x_max
+        real(kind = dp) :: dx
         interface
             pure function v(x) result(v_x)
                 use constants
-                real(kind=dp), intent(in) :: x
-                real(kind=dp) :: v_x
+                real(kind = dp), intent(in) :: x
+                real(kind = dp) :: v_x
             end function v
         end interface 
 
         real(kind = dp), intent(out) :: E(N) !return array of N energies (eigenvalues)
         real(kind = dp), intent(out) :: psi(N,N) !return N eigenfunctions with N values each
+        ! LAPACK variables
+        integer :: info, lwork
+        real(kind = dp), allocatable :: work(:)
 
+        ! Other variables
+        integer :: i, j, n_eigen
+        real(kind = dp) :: kin_const
+
+  
         real(kind = dp), allocatable :: H(:,:)
+        real(kind = dp), allocatable :: X(:)
+        allocate(x(N))
         allocate(H(N,N))
+
+        dx = (x_max - x_min)/N
+
+
+        do i = 1, N 
+            x(i) = x_min + (i-1)*dx
+        end do
+
+
+
 
     end subroutine solve_tise
 
