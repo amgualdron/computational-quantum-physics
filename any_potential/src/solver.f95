@@ -49,6 +49,14 @@ module solver
             x(i) = x_min + (i-1)*dx
         end do
 
+        do i = 1, N 
+            H(i,i) = 2*hbar2_2m/(dx**2) + v(x(i))
+            if(i>1) then
+                H(i,i-1) = - hbar2_2m
+            end if
+
+        end do
+
 
 
 
